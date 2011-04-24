@@ -5,5 +5,11 @@
   <a href="http://www.i-faber.com">i-Faber</a>
   VM Next <i>alfa</i>.
 </p>
+  <% if signed_in? %>
+      <p><%= link_to "Do something 1!", signup_path, :class => "signup_button round" %></p>
+      <p><%= link_to "Do something 2!", signup_path, :class => "signup_button round" %></p>
+      <%= link_to "Do something 3!", signup_path, :class => "signup_button round" %>
+  <% else %>
+    <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+  <% end %>
 
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
