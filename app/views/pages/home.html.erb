@@ -6,9 +6,9 @@
   VM Next <i>alfa</i>.
 </p>
   <% if signed_in? %>
-      <p><%= link_to "Do something 1!", signup_path, :class => "signup_button round" %></p>
-      <p><%= link_to "Do something 2!", signup_path, :class => "signup_button round" %></p>
-      <%= link_to "Do something 3!", signup_path, :class => "signup_button round" %>
+      <p><%= link_to "Your setup", signup_path, :class => "signup_button round" %></p>
+      <p><%= link_to "Inquiry your supplier base", signup_path, :class => "signup_button round" %></p>
+      <%= link_to "Do something with suppliers", signup_path, :class => "signup_button round" %>
   <% else %>
     <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
   <% end %>
