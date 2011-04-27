@@ -6,15 +6,11 @@ Awesome Nested Set is an implementation of the nested set pattern for ActiveReco
 
 This is a new implementation of nested set based off of BetterNestedSet that fixes some bugs, removes tons of duplication, adds a few useful methods, and adds STI support.
 
-== Quick note
-
-This has been fixed up for use with Rails 3.x for use with Arel and fixed Deprecation warnings
-
 == Installation
 
 Install as a plugin:
 
-  rails plugin install git://github.com/tommg/awesome_nested_set.git
+  script/plugin install git://github.com/collectiveidea/awesome_nested_set.git
   
 == Usage
 
@@ -42,14 +38,6 @@ Enable the nested set functionality by declaring acts_as_nested_set on your mode
   end
   
 Run `rake rdoc` to generate the API docs and see CollectiveIdea::Acts::NestedSet::SingletonMethods for more info.
-
-== Conversion from other trees
-
-Coming from acts_as_tree or another system where you only have a parent_id? No problem. Simply add the lft & rgt fields as above, and then run
-
-  Category.rebuild!
-  
-Your tree be converted to a valid nested set. Awesome!
 
 == View Helper
 
