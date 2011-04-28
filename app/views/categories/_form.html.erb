@@ -1,0 +1,12 @@
+<% form_for @category do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <p>
+    <%= f.label :categoryname %><br />
+    <%= f.text_field :categoryname %>
+  </p>
+	<p><%= f.label :parent_id, "Parent Category" %><%= f.select :parent_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.categoryname}" }, :prompt => "NONE: Make This A Root Category" %> <br />
+		<small>NOTE: Leaving the above field blank makes it a root category</small>
+	</p>
+
+  <p><%= f.submit %></p>
+<% end %>

@@ -704,8 +704,8 @@ class AwesomeNestedSetTest < TestCaseClass
     structure = structure.dup
     Category.each_with_level(entries) do |category, level|
       expected_level, expected_name = structure.shift
-      assert_equal expected_name, category.name, "wrong category"
-      assert_equal expected_level, level, "wrong level for #{category.name}"
+      assert_equal expected_name, category.categoryname, "wrong category"
+      assert_equal expected_level, level, "wrong level for #{category.categoryname}"
     end
   end
 
