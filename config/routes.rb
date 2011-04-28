@@ -12,11 +12,7 @@ SampleApp::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
-  resources :categories, :only => [:new, :create, :destroy]
-  resources :categories, :collection => {:dragdrop => :get}
-#connect ':controller/:action/:id'
-#connect ':controller/:action/:id.:format'
-#root :controller => 'index'
+
   
   #get "users/new"
   #get "pages/home"
