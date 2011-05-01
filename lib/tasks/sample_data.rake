@@ -7,6 +7,7 @@ namespace :db do
     make_users
     make_microposts
     make_relationships
+    make_categories
   end
 end
 
@@ -44,3 +45,16 @@ def make_relationships
   following.each { |followed| user.follow!(followed) }
   followers.each { |follower| follower.follow!(user) }
 end
+
+def make_categories
+  theroot = Category.create!(:name => "categoria-root",
+                             :parent_id => nil)
+
+  99.times do |n|
+    name  = "categoria-#{n+1}"
+    parent_id = (1+n/10).round 
+    Category.create!(:name => name,
+                     :parent_id => parent_id)
+  end
+end
+
