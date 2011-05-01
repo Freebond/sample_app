@@ -1,8 +1,6 @@
 
 <p>
-  <strong><%=h @category.categoryname %></strong>
-  <br />
-  <strong>Parent: </strong>
+  <strong>Parent:</strong>
 	<% unless @category.parent.nil? %>
   		This category is a child of <strong><%=h @category.parent.name.upcase %></strong>
 	<% else %>

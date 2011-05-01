@@ -7,18 +7,21 @@ SampleApp::Application.routes.draw do
   end
 
   get "sessions/new"
-
+  get "categories/hello"
+  get "categories/show"
+  get "categories/index"  
+  get "categories/new"
+  
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
-
+  resources :categories
+  resources :imports, :except => [:index]
   
-  #get "users/new"
-  #get "pages/home"
-  #get "pages/contact"
-  #get "pages/about"
-  #get "pages/help"
+  match '/import/proc/:id', :to => 'imports#proc_csv', :as => "import_proc"
+
+  get "pages/settings"
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
@@ -28,6 +31,9 @@ SampleApp::Application.routes.draw do
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
 
+  match '/settings',:to => 'pages#settings'
+  match '/imports',:to => 'imports#new'
+    
   root :to => 'pages#home'
 
 

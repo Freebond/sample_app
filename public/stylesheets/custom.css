@@ -150,6 +150,13 @@ td.sidebar {
   background: #ffc;
 }
 
+td.buttoncontainer {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
 .profile img.gravatar {
   border: 1px solid #999;
   margin-bottom: -15px;
@@ -158,6 +165,7 @@ td.sidebar {
 div.field, div.actions {
   margin-bottom: 10px;
 }
+
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;

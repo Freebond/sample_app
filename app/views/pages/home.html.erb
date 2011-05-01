@@ -2,12 +2,17 @@
 
   <% if signed_in? %>
 
-    <p></p>
-    <%= link_to "Your setup", signup_path, :class => "action_button round" %>
-    <%= link_to "Your supplier base", signup_path, :class => "action_button round" %>
-    <%= link_to "Act with suppliers", signup_path, :class => "action_button round" %>
-    <p></p>
-    <br />
+    <table class="front" summary="For signed-in users">
+      <tr>
+        <td class="buttoncontainer round">
+          <p></p>
+          <%= link_to "Your settings", settings_path, :class => "action_button round" %>
+          <%= link_to "Your supplier base", signup_path, :class => "action_button round" %>
+          <%= link_to "Act with suppliers", signup_path, :class => "action_button round" %>
+          <p></p>
+        </td>
+      </tr>
+    </table>
 
     <table class="front" summary="For signed-in users">
       <tr>

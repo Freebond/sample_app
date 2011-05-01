@@ -20,4 +20,8 @@ class PagesController < ApplicationController
     @title = "Help"
   end
 
+  def settings
+    @title = "Settings"
+  end
+
 end

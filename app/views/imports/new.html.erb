@@ -1,0 +1,13 @@
+<H2>Upload a CSV file to import Categories</H2>
+
+<% form_for @import, :html => { :multipart => true } do |f| %>
+
+  <%= f.file_field :csv %>
+  <select name="import[datatype]" size="1">
+    <option value="categories"> Categories </option>
+    <option value="questionnaires"> Questionnaires </option>
+  </select>
+
+    <%= f.submit "Import" %>
+
+<% end %>

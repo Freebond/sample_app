@@ -1,0 +1,18 @@
+<h1>What do you want to setup?</h1>
+  <p></p>
+  <% if signed_in? %>
+    <table class="front" summary="For signed-in users">
+      <tr>
+        <td class="buttoncontainer round">
+          <p></p>
+          <%= link_to "Company data", categories_path, :class => "action_button round" %>
+          <%= link_to "Users and roles", categories_path, :class => "action_button round" %>
+          <%= link_to "Supply Categories", categories_path, :class => "action_button round" %>
+          <p></p>
+        </td>
+      </tr>
+    </table>
+  <% else %>
+    <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+  <% end %>
+

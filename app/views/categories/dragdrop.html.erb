@@ -46,7 +46,7 @@
 <% @root = Category.roots %>
 <ul id="tree">
 	<% for rootnode in @root %>
-    	<%= render :partial => "partials/tree", :locals => {:root => rootnode} %>
+    	<%= render :partial => "tree", :locals => {:root => rootnode} %>
 	<% end -%>
 </ul>
 

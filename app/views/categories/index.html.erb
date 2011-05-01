@@ -1,5 +1,22 @@
+<h1>Get categories from?</h1>
 
-<h4> Root categories are highlighted </h4>
+    <table class="front" summary="For signed-in users">
+      <tr>
+        <td class="buttoncontainer round">
+          <%= render 'shared/addl_info' %>
+          <p></p>
+          <%= link_to "an imported CSV file", imports_path, :class => "action_button round" %>
+          <%= link_to "the Vendor Store", categories_path, :class => "action_button round" %>
+          <p></p>
+        </td>
+      </tr>
+    </table>
+
+<p></p>
+<br />
+<h1>Manage your categories 1 by 1</h1>
+  <p></p>
+<h4> root categories are highlighted </h4>
 <small><strong>NOTE: </strong>DELETING A CATEGORY WITH CHILDREN, ALSO DELETES THE CHILDREN</small>
 <p> &nbsp; </p>
 <table style="text-align:left;">
@@ -14,13 +31,33 @@
 		<% else %>
 		<tr>
 		<% end -%>
-      <td><%=h category.categoryname %></td>
+      <td><%=h category.name %></td>
       <td><%= link_to "Show", category %> &nbsp; <%= link_to "Edit", edit_category_path(category) %> &nbsp; <%= link_to "Destroy", category, :confirm => 'Are you sure?', :method => :delete %></td>
 		<% unless category.parent_id.nil? %>
-			<td><%= category.parent.categoryname %></td>
+			<td><%= category.parent.name %></td>
 		<% end -%>
     </tr>
   <% end %>
 </table>
 
 <p><%= link_to "New Category", new_category_path %></p>
+
+<h2>Category Tree</h2>
+<div id="twolevelnav">
+	<% for category in Category.roots %>
+		<ul>
+			<li><%= category.name %>
+				<% if category.children.size > 0 %>
+					<ul>
+					<% for child in category.children %>
+						<li><%= child.name %></li>
+					<% end -%>
+					</ul>
+				<% end -%>
+			</li>
+		</ul>
+	<% end -%>
+
+</div>
+
+<div class="clear"> </div>
