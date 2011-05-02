@@ -10,13 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110430135640) do
+ActiveRecord::Schema.define(:version => 20110502131948) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "duns"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "province"
+    t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20110430135640) do
     t.string   "encrypted_password"
     t.string   "salt"
     t.boolean  "admin",              :default => false
+    t.integer  "company_id"
   end
 
 end

@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
   
+
+
   resources :users do
     member do
       get :following, :followers
@@ -12,12 +14,19 @@ SampleApp::Application.routes.draw do
   get "categories/index"  
   get "categories/new"
   
+  get "companies/new"
+  get "companies/create"
+  get "companies/destroy"
+  
+#  get "pages/settings"
+  
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
   resources :categories
   resources :imports, :except => [:index]
+  resources :companies, :except => [:index]
   
   match '/import/proc/:id', :to => 'imports#proc_csv', :as => "import_proc"
 
@@ -33,6 +42,8 @@ SampleApp::Application.routes.draw do
 
   match '/settings',:to => 'pages#settings'
   match '/imports',:to => 'imports#new'
+    
+  match '/companies',:to => 'companies#new'
     
   root :to => 'pages#home'
 

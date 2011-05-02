@@ -26,16 +26,16 @@
 	<th>Parent Category</th>
   </tr>
   <% for category in @categories %>
-		<% if category.root? %>
-    <tr style="background-color:#EEF">
-		<% else %>
-		<tr>
-		<% end -%>
+    <% if category.root? %>
+      <tr style="background-color:#EEF">
+    <% else %>
+      <tr>
+    <% end -%>
       <td><%=h category.name %></td>
       <td><%= link_to "Show", category %> &nbsp; <%= link_to "Edit", edit_category_path(category) %> &nbsp; <%= link_to "Destroy", category, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% unless category.parent_id.nil? %>
-			<td><%= category.parent.name %></td>
-		<% end -%>
+	<% unless category.parent_id.nil? %>
+	  <td><%= category.parent.name %></td>
+	<% end -%>
     </tr>
   <% end %>
 </table>
@@ -57,7 +57,28 @@
 			</li>
 		</ul>
 	<% end -%>
-
 </div>
+
+
+
+<ul>  
+<% for category in Category.find_all_by_parent_id(nil) %>  
+  <li>  
+  <%= link_to h(category.name), :controller => 'categories', :action => 'show', :id => category.id %>    
+  <% if Category.find_all_by_parent_id(category.id).empty? %>    
+    <span>no subcategories</span>    
+  <% else %>      
+    <ul>
+    <% for category in Category.find_all_by_parent_id(category.id) %>        
+      <li>        
+      <%= link_to h(category.name), :controller => 'categories', :action => 'show', :id => category.id %>        
+      </li>        
+
+    <% end %>      
+    </ul>    
+  <% end %>  
+  </li>  
+<% end %> 
+</ul>
 
 <div class="clear"> </div>
