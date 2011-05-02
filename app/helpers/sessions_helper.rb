@@ -12,6 +12,10 @@ module SessionsHelper
   def current_user
     @current_user ||= user_from_remember_token
   end
+
+  def current_company=(company)
+    @current_company = Company.find_by_id(current_user.company_id)
+  end
   
   def signed_in?
     !current_user.nil?
@@ -20,6 +24,7 @@ module SessionsHelper
   def sign_out
     cookies.delete(:remember_token)
     self.current_user = nil
+    self.current_company = nil
   end
   
   def authenticate
@@ -33,6 +38,10 @@ module SessionsHelper
 
   def current_user?(user)
     user == current_user
+  end
+
+  def current_company?(company)
+    company == current_company
   end
 
   def deny_access

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  def new
+  def show_details
     @company = Company.new
     @title = "Sign up"
   end

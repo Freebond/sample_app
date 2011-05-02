@@ -43,7 +43,7 @@ SampleApp::Application.routes.draw do
   match '/settings',:to => 'pages#settings'
   match '/imports',:to => 'imports#new'
     
-  match '/companies',:to => 'companies#new'
+  match '/companies',:to => 'companies#show_details'
     
   root :to => 'pages#home'
 
