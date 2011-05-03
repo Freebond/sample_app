@@ -1,12 +1,17 @@
 SampleApp::Application.routes.draw do
   
-
-
   resources :users do
     member do
       get :following, :followers
     end
   end
+
+  resources :companies do
+    member do
+      get :cpyfollowing, :cpyfollowers
+    end
+  end
+
 
   get "sessions/new"
   get "categories/hello"
@@ -18,12 +23,11 @@ SampleApp::Application.routes.draw do
   get "companies/create"
   get "companies/destroy"
   
-#  get "pages/settings"
-  
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
   resources :relationships, :only => [:create, :destroy]
+  resources :cpyrelationships, :only => [:create, :destroy]
   resources :categories
   resources :imports, :except => [:index]
   resources :companies, :except => [:index]
@@ -43,7 +47,7 @@ SampleApp::Application.routes.draw do
   match '/settings',:to => 'pages#settings'
   match '/imports',:to => 'imports#new'
     
-  match '/companies',:to => 'companies#show_details'
+#  match '/companies',:to => 'companies#show_details'
     
   root :to => 'pages#home'
 

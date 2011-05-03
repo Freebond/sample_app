@@ -1,0 +1,9 @@
+<% unless current_company?(@company) %>
+  <div id="cpyfollow_form">
+  <% if current_company.cpyfollowing?(@company) %>
+    <%= render 'cpyunfollow' %>
+  <% else %>
+    <%= render 'cpyfollow' %>
+  <% end %>
+  </div>
+<% end %>

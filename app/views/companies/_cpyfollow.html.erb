@@ -1,0 +1,5 @@
+<%= form_for current_company.cpyrelationships.
+                          build(:cpyfollowed_id => @company.id) do |f| %>
+  <div><%= f.hidden_field :cpyfollowed_id %></div>
+  <div class="actions"><%= f.submit "Become a supplier" %></div>
+<% end %>

@@ -1,0 +1,16 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1>
+        <%= @company.name %>
+      </h1>
+      <%= render 'follow_form' if signed_in? %>
+    </td>
+
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @company.name %><br />
+      <strong>URL</strong> <%= link_to company_path(@company), @company %><br />
+      <%= render 'shared/cpystats' %>
+    </td>
+  </tr>
+</table>

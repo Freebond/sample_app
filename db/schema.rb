@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110502131948) do
+ActiveRecord::Schema.define(:version => 20110503201620) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(:version => 20110502131948) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "cpyrelationships", :force => true do |t|
+    t.integer  "cpyfollower_id"
+    t.integer  "cpyfollowed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cpyrelationships", ["cpyfollowed_id"], :name => "index_cpyrelationships_on_cpyfollowed_id"
+  add_index "cpyrelationships", ["cpyfollower_id", "cpyfollowed_id"], :name => "index_cpyrelationships_on_cpyfollower_id_and_cpyfollowed_id", :unique => true
+  add_index "cpyrelationships", ["cpyfollower_id"], :name => "index_cpyrelationships_on_cpyfollower_id"
 
   create_table "imports", :force => true do |t|
     t.string   "datatype"

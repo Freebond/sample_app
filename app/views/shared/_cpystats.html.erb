@@ -1,0 +1,22 @@
+<% @company ||= Company.find_by_id(current_user.company_id) %>
+<strong><i><%= @company.name %></i></strong>  relationships:<br />
+<div class="stats">
+  <table summary="Company stats">
+    <tr>
+      <td>
+        <a href="<%= cpyfollowing_company_path(@company) %>">
+          <span id="cpyfollowing" class="stat">
+            <strong><%= @company.cpyfollowing.count %></strong><br /> Supplied companies <i>[following]</i> 
+          </span>
+        </a>
+      </td>
+      <td>
+        <a href="<%= cpyfollowers_company_path(@company) %>">
+          <span id="cpyfollowers" class="stat">
+            <strong><%= @company.cpyfollowers.count %></strong><br /> company suppliers <i>[followers]</i>
+          </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>

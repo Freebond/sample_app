@@ -9,6 +9,7 @@ namespace :db do
     make_microposts
     make_relationships
     make_categories
+    make_cpyrelationships
   end
 end
 
@@ -79,4 +80,14 @@ def make_companies
                  :province => province,
                  :country => country)
   end
+
+  def make_cpyrelationships
+    companies = Company.all
+    company  = companies.first
+    cpyfollowing = companies[1..15]
+    cpyfollowers = companies[3..10]
+    cpyfollowing.each { |cpyfollowed| company.cpyfollow!(cpyfollowed) }
+    cpyfollowers.each { |cpyfollower| cpyfollower.cpyfollow!(company) }
+  end
+
 end

@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_filter :authenticate, :except => [:show, :new, :create]
 
   def show_details
     @company = Company.new
@@ -20,6 +21,20 @@ class CompaniesController < ApplicationController
     @company.destroy
     flash[:notice] = "Successfully destroyed company."
     redirect_to companies_url
+  end
+
+  def cpyfollowing
+    @title = "Supplied companies"
+    @company = Company.find(params[:id])
+    @companies = @company.cpyfollowing.paginate(:page => params[:page])
+    render 'show_cpyfollow'
+  end
+
+  def cpyfollowers
+    @title = "Suppliers"
+    @company = Company.find(params[:id])
+    @companies = @company.cpyfollowers.paginate(:page => params[:page])
+    render 'show_cpyfollow'
   end
 
 end

@@ -1,0 +1,19 @@
+<table summary="Information about supplied companies and suppliers">
+  <tr>
+    <td class="main">
+      <h1><%= @title %></h1>
+      
+      <% unless @companies.empty? %>
+        <ul class="companies">
+          <%= render @companies %>
+        </ul>
+        <%= will_paginate @companies %>
+      <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @company.name %><br />
+      <strong>URL</strong> <%= link_to company_path(@company), @company %><br />
+      <%= render 'shared/cpystats' %>
+    </td>
+  </tr>
+</table>
