@@ -1,5 +1,5 @@
 SampleApp::Application.routes.draw do
-  
+   
   resources :users do
     member do
       get :following, :followers
@@ -31,7 +31,7 @@ SampleApp::Application.routes.draw do
   resources :categories
   resources :imports, :except => [:index]
   resources :companies, :except => [:index]
-  
+ 
   match '/import/proc/:id', :to => 'imports#proc_csv', :as => "import_proc"
 
   get "pages/settings"

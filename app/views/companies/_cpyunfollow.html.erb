@@ -1,0 +1,4 @@
+<%= form_for Company.find_by_id(current_user.company_id).cpyrelationships.find_by_cpyfollowed_id(@company),
+             :html => { :method => :delete } do |f| %>
+<div class="actions"><%= f.submit "Unfollow" %></div>
+<% end %>

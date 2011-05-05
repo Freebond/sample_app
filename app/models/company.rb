@@ -10,7 +10,7 @@ class Company < ActiveRecord::Base
 #                                   :class_name => "Cpyrelationship",
 #                                   :dependent => :destroy
   has_many :cpyfollowers, :through => :reverse_cpyrelationships, :source => :cpyfollower  
-  
+
   def cpyfollowing?(cpyfollowed)
     cpyrelationships.find_by_cpyfollowed_id(cpyfollowed)
   end

@@ -1,6 +1,11 @@
 class CompaniesController < ApplicationController
   before_filter :authenticate, :except => [:show, :new, :create]
 
+  def show
+    @company = Company.find(params[:id])
+    @title = @company.name
+  end
+
   def show_details
     @company = Company.new
     @title = "Sign up"
