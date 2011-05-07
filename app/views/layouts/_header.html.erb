@@ -1,5 +1,10 @@
-<header>
-  <%= link_to logo, root_path %>
+<header>      
+  <% if signed_in? %> 
+    <%= image_tag(Company.find_by_id(current_user.company_id).name + ".jpg", :class => "bevel", :size => "240x90") %>
+  <% else %>
+    <%= link_to logo, root_path %>
+  <% end %>
+
    <nav class="round">
     <ul>
       <li><%= link_to "Home", root_path %></li>

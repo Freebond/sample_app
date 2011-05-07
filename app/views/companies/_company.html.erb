@@ -1,8 +1,17 @@
 <li>
-  <%= link_to company.name, company %>
-  <% if current_user.admin? %>
-  | <%= link_to "delete", company, :method => :delete, :confirm => "Are you sure?",
-                                :title => "Delete #{company.name}" %>
+  <% if company.blacklist? %>
+    <%= image_tag("blacklist.jpg", :class => "bevel", :size => "40x40") %>
+  <% else %> 
+    <%if company.whitelist?%>
+      <%= image_tag("whitelist.jpg", :class => "bevel", :size => "40x40") %>
+    <%else%>
+      <%= image_tag("blank.jpg", :class => "bevel", :size => "40x40") %>
+    <% end %>
+  <% end %>
+  
+  <% if current_user.admin? %>  
+    <%= link_to company.name, company %>
+  <% else %>
+     <%= company.name%>
   <% end %>
 </li>
-

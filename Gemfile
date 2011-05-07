@@ -15,6 +15,7 @@ source 'http://rubygems.org'
   gem "nested_set"
   gem "paperclip"
   #gem "fastercsv"
+  gem "pony"
 
 group :development do
   gem 'rspec-rails', '2.5.0'

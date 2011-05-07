@@ -55,6 +55,8 @@ GEM
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
     polyglot (0.3.1)
+    pony (1.2)
+      mail (> 2.0)
     rack (1.2.2)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -108,6 +110,7 @@ DEPENDENCIES
   gravatar_image_tag (= 1.0.0.pre2)
   nested_set
   paperclip
+  pony
   rails (= 3.0.6)
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)

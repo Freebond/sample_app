@@ -1,23 +1,23 @@
 <%= @current_company = Company.find_by_id(current_user.company_id) %>
 <h1>My company: <%=  @current_company.name %></h1>
-<tr>
-  <div class="field">
-    <%= :Company %>:  <td><strong><%=  @current_company.name %></strong>.....<%= link_to "Edit", companies_path %></td><br />
-    <%= :DUNS %>:     <td><strong><%=  @current_company.duns %></strong>.....<%= link_to "Edit", companies_path %></td><br />
-    <%= :Address %>:  <td><strong><%=  @current_company.address %></strong>.....<%= link_to "Edit", companies_path %></td><br />
-    <%= :City %>:     <td><strong><%=  @current_company.city %></strong>.....<%= link_to "Edit", companies_path %></td><br />
-    <%= :Province %>: <td><strong><%=  @current_company.province %></strong>.....<%= link_to "Edit", companies_path %></td><br />
-    <%= :ZIP %>:      <td><strong><%=  @current_company.zip %></strong>.....<%= link_to "Edit", companies_path %></td><br />
-    <%= :Country %>:  <td><strong><%=  @current_company.country %></strong>.....<%= link_to "Edit", companies_path %></td>
-  </div>
-</tr>
+<table class="front" summary="For signed-in users">
+    <td class="field">
+      <%= :Company %>:  <strong><%=  @current_company.name %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :DUNS %>:     <strong><%=  @current_company.duns %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :Address %>:  <strong><%=  @current_company.address %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :City %>:     <strong><%=  @current_company.city %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :Province %>: <strong><%=  @current_company.province %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :ZIP %>:      <strong><%=  @current_company.zip %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :Country %>:  <strong><%=  @current_company.country %></strong>.....<%= link_to "Edit", companies_path %>
+    </td>
+    <td class="sidebar round">
+      <%= render 'shared/user_info' %>
+      <%= render 'shared/cpystats' %>
+    </td>
+</table>
 
-    <table class="front" summary="For signed-in users">
-      <tr>
-        <td class="sidebar round">
-          <%= render 'shared/user_info' %>
-          <%= render 'shared/cpystats' %>
-        </td>
-      </tr>
-    </table>
-
+<%= form_for Company.find_by_id(current_user.company_id).cpyrelationships.
+                          build(:cpyfollowed_id => @company.id) do |f| %>
+  <div class="actions"><%= f.submit "Invite a supplier" %></div>  
+  <div class="actions"><%= f.submit "Contact a buyer" %></div>
+<% end %>

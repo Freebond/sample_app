@@ -1,4 +1,26 @@
 <%= form_for Company.find_by_id(current_user.company_id).cpyrelationships.find_by_cpyfollowed_id(@company),
              :html => { :method => :delete } do |f| %>
+
+<table class="front" summary="For signed-in users">
+    <td class="field">
+      <%= :Company %>:  <strong><%=  @company.name %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :DUNS %>:     <strong><%=  @company.duns %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :Address %>:  <strong><%=  @company.address %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :City %>:     <strong><%=  @company.city %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :Province %>: <strong><%=  @company.province %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :ZIP %>:      <strong><%=  @company.zip %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <%= :Country %>:  <strong><%=  @company.country %></strong>.....<%= link_to "Edit", companies_path %><br />
+      <% if @company.blacklist? %>
+        <%= image_tag("blacklist.jpg", :class => "bevel", :size => "40x40") %>
+      <% end %>
+      <% if @company.whitelist? %>
+        <%= image_tag("whitelist.jpg", :class => "bevel", :size => "40x40") %>
+      <% end %>
+    </td>
+</table>
+
+<h3>Supplier for the following categories</h3>
+
 <div class="actions"><%= f.submit "Unfollow" %></div>
+
 <% end %>

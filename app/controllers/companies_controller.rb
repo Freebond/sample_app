@@ -21,12 +21,12 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def destroy
-    @company = Company.find(params[:id])
-    @company.destroy
-    flash[:notice] = "Successfully destroyed company."
-    redirect_to companies_url
-  end
+#  def destroy
+#    @company = Company.find(params[:id])
+#    @company.destroy
+#    flash[:notice] = "Successfully destroyed company."
+#    redirect_to companies_url
+#  end
 
   def cpyfollowing
     @title = "Supplied companies"
