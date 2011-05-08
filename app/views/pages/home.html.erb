@@ -1,14 +1,12 @@
 <h1>What do you want to do?</h1>
 
   <% if signed_in? %>
-
     <table class="front" summary="For signed-in users">
       <tr>
         <td class="buttoncontainer round">
           <p></p>
-          <%= link_to "Your settings", settings_path, :class => "action_button round" %>
+          <%= link_to "Modify your settings", settings_path, :class => "action_button round" %>
           <%= link_to "Your supplier base", signup_path, :class => "action_button round" %>
-          <%= link_to "Act with suppliers", signup_path, :class => "action_button round" %>
           <p></p>
         </td>
       </tr>
@@ -18,6 +16,13 @@
       <tr>
         <td class="main">
           <h1 class="micropost">What's up?</h1>
+  <p>With your followers you can:
+  <i>
+  <li>send a message (ex. can you help me with these custom codes?)</li>
+  <li>share an action (ex. <b>#sourcing</b> paper, someone interested?)</li>
+  <li>refer to a user (ex. great experience from <b>@bond</b>)</li>
+  <li>refer to an argument (ex. revamped <b>@pallets</b> to trade)</li>
+  </i>
           <%= render 'shared/micropost_form' %>
           <%= render 'shared/feed' %>
         </td>

@@ -18,6 +18,7 @@ SampleApp::Application.routes.draw do
   get "categories/show"
   get "categories/index"  
   get "categories/new"
+#  get "categories/market"
   
   get "companies/new"
   get "companies/create"
@@ -46,6 +47,8 @@ SampleApp::Application.routes.draw do
 
   match '/settings',:to => 'pages#settings'
   match '/imports',:to => 'imports#new'
+ 
+  match 'market', :to => 'categories#market'
     
 #  match '/companies',:to => 'companies#show_details'
     

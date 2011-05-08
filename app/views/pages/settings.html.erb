@@ -6,7 +6,7 @@
         <td class="buttoncontainer round">
           <p></p>
           <%= link_to "Company data", companies_path, :class => "action_button round" %>
-          <%= link_to "Users and roles", users_path, :class => "action_button round" %>
+          <%= link_to "Personal data", edit_user_path(current_user), :class => "action_button round" %>
           <%= link_to "Supply Categories", categories_path, :class => "action_button round" %>
           <p></p>
         </td>

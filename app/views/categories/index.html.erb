@@ -6,13 +6,45 @@
           <%= render 'shared/addl_info' %>
           <p></p>
           <%= link_to "an imported CSV file", imports_path, :class => "action_button round" %>
-          <%= link_to "the Vendor Store", categories_path, :class => "action_button round" %>
+          <%= link_to "the Vendor Store", market_path, :class => "action_button round" %>
           <p></p>
         </td>
       </tr>
     </table>
 
 <p></p>
+
+
+<h2>Category Tree</h2>
+
+<ul>  
+<% for category in Category.find_all_by_parent_id(nil) %>  
+  <li>  
+  <%= link_to h(category.name), :controller => 'categories', :action => 'show', :id => category.id %>    
+  <% if Category.find_all_by_parent_id(category.id).empty? %>    
+    <span>no subcategories</span>    
+  <% else %>      
+    <ul>
+    <% for category in Category.find_all_by_parent_id(category.id) %>        
+      <li><%= link_to h(category.name), :controller => 'categories', :action => 'show', :id => category.id %></li>        
+      
+      <% if Category.find_all_by_parent_id(category.id).empty? %>    
+        <span>no subcategories</span>    
+      <% else %>      
+        <ul>
+        <% for category in Category.find_all_by_parent_id(category.id) %>        
+          <li><%= link_to h(category.name), :controller => 'categories', :action => 'show', :id => category.id %></li>        
+        <% end %>            
+      <% end %>     
+
+    <% end %>      
+    </ul>    
+  <% end %>  
+  </li>  
+<% end %> 
+</ul>
+
+
 <br />
 <h1>Manage your categories 1 by 1</h1>
   <p></p>
@@ -41,44 +73,5 @@
 </table>
 
 <p><%= link_to "New Category", new_category_path %></p>
-
-<h2>Category Tree</h2>
-<div id="twolevelnav">
-	<% for category in Category.roots %>
-		<ul>
-			<li><%= category.name %>
-				<% if category.children.size > 0 %>
-					<ul>
-					<% for child in category.children %>
-						<li><%= child.name %></li>
-					<% end -%>
-					</ul>
-				<% end -%>
-			</li>
-		</ul>
-	<% end -%>
-</div>
-
-
-
-<ul>  
-<% for category in Category.find_all_by_parent_id(nil) %>  
-  <li>  
-  <%= link_to h(category.name), :controller => 'categories', :action => 'show', :id => category.id %>    
-  <% if Category.find_all_by_parent_id(category.id).empty? %>    
-    <span>no subcategories</span>    
-  <% else %>      
-    <ul>
-    <% for category in Category.find_all_by_parent_id(category.id) %>        
-      <li>        
-      <%= link_to h(category.name), :controller => 'categories', :action => 'show', :id => category.id %>        
-      </li>        
-
-    <% end %>      
-    </ul>    
-  <% end %>  
-  </li>  
-<% end %> 
-</ul>
 
 <div class="clear"> </div>
