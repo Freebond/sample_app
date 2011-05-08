@@ -34,7 +34,7 @@ def make_users
 end
 
 def make_microposts
-  User.all(:limit => 6).each do |user|
+  User.all(:limit => 12).each do |user|
     50.times do
       content = Faker::Lorem.sentence(5)
       user.microposts.create!(:content => content)
@@ -101,7 +101,7 @@ def make_companies
     companies = Company.all
     company  = companies.first
     cpyfollowing = companies[1..15]
-    cpyfollowers = companies[3..10]
+    cpyfollowers = companies[3..12]
     cpyfollowing.each { |cpyfollowed| company.cpyfollow!(cpyfollowed) }
     cpyfollowers.each { |cpyfollower| cpyfollower.cpyfollow!(company) }
   end
