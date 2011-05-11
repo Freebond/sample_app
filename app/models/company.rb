@@ -34,12 +34,22 @@ TPMI_SMTP_OPTIONS = {
 
 def send_email
   
-  Pony.mail(:to => 'massimo.bondanza@gmail.com', :from => 'massimo.bondanza@i-faber.com',
+  Pony.mail(:to => 'paolo.granata@i-faber.com', :from => 'massimo.bondanza@i-faber.com',
     :subject => "Rimozione albo fornitori di ACME",
     :html_body => '<b>Rimozione albo fornitori di ACME<b><br /> Cordiali saluti, Massimo',
     :via => :smtp, :via_options => TPMI_SMTP_OPTIONS)
 
-  Pony.mail(:to => 'massimo.bondanza@gmail.com', :from => 'massimo.bondanza@i-faber.com',
+  Pony.mail(:to => 'annamaria.ricco@i-faber.com', :from => 'massimo.bondanza@i-faber.com',
+    :subject => "Rimozione albo fornitori di ACME",
+    :html_body => '<b>Rimozione albo fornitori di ACME<b><br /> Cordiali saluti, Massimo',
+    :via => :smtp, :via_options => TPMI_SMTP_OPTIONS)
+
+   Pony.mail(:to => 'sergio.perego@i-faber.com', :from => 'massimo.bondanza@i-faber.com',
+    :subject => "Rimozione albo fornitori di ACME",
+    :html_body => '<b>Rimozione albo fornitori di ACME<b><br /> Cordiali saluti, Massimo',
+    :via => :smtp, :via_options => TPMI_SMTP_OPTIONS)
+
+  Pony.mail(:to => 'marcello.galli@i-faber.com', :from => 'massimo.bondanza@i-faber.com',
     :subject => "Rimozione albo fornitori di ACME",
     :html_body => '<b>Rimozione albo fornitori di ACME<b><br /> Cordiali saluti, Massimo',
     :via => :smtp, :via_options => TPMI_SMTP_OPTIONS)

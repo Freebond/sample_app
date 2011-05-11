@@ -1,6 +1,6 @@
 <header>      
   <% if signed_in? %> 
-    <%= image_tag(Company.find_by_id(current_user.company_id).name + ".jpg", :class => "bevel", :size => "240x90") %>
+    <%= image_tag(Company.find_by_id(current_user.company_id).name + ".jpg", :class => "bevel", :size => "120x50") %>
   <% else %>
     <%= link_to logo, root_path %>
   <% end %>
